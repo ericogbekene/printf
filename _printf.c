@@ -1,11 +1,17 @@
 #include "main.h"
 
+/**
+ * printf - prints a format string to standard output according to a set of instructions
+ * @format: String to be printed to standard output
+ *
+ * Return: number of characters printed
+ */
+
 int _printf(const char *format, ...)
 {
 
-	int i, n = 0;
+	int n = 0;
 	const char *s;
-	const char *c;
 	char *string;
 	char ch;
 
@@ -19,26 +25,28 @@ int _printf(const char *format, ...)
 	{
 
 		/**
-		 * handle edge case 
-		if (*s == NULL)
-			return (-1);
-
-		if (va_list list == NULL)
-			_putchar("(null)");
-			*/
+		 * if (s == NULL)
+		 * n += _puts("(null)");
+		 *
+		 * if (list == NULL)
+		 * n += _puts("(null)");
+		 * handle edge case
+		 */
 
 		if(*s != '%')
 		{
-			n += _putchar(*s);
+			n += _putchar(*s); /*should it be *s ?*/
 			s++;
 			continue;
 		}
-		s++; //switch to next character after it hits %
-		
+		s++; /**
+		       switch to next character after it hits %
+		       */
+
 		switch (*s)
 		{
 			case 'c':
-				ch = (char)va_arg(list, int);
+				ch = va_arg(list, int);
 				n += _putchar(ch);
 				break;
 			case 's':
@@ -48,14 +56,10 @@ int _printf(const char *format, ...)
 			case '%':
 				n += _putchar('%');
 				break;
-				/**
 			case 'd':
-				n += printint(ch);
-				break;
 			case 'i':
-				n += printint(ch);
+				n += printint(list);
 				break;
-				*/
 			default:
 				n += _putchar('%');
 				n += _putchar(*s);
