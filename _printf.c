@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf - prints a format string to standard output according to a set of instructions
+ * _printf - prints a format string to standard output
  * @format: String to be printed to standard output
  *
  * Return: number of characters printed
@@ -12,8 +12,7 @@ int _printf(const char *format, ...)
 
 	int n = 0;
 	const char *s;
-	char *string;
-	char ch;
+	char ch, *string;
 
 	va_list list;
 
@@ -21,27 +20,22 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	while(*s)
+	while (*s)
 	{
-
-		/**
-		 * if (s == NULL)
-		 * n += _puts("(null)");
-		 *
-		 * if (list == NULL)
-		 * n += _puts("(null)");
-		 * handle edge case
+		if (s == NULL)
+			n += puts("(null)");
+		if (list == NULL)
+			n += puts("(null)");
+		 /* handle other edge cases
 		 */
 
-		if(*s != '%')
+		if (*s != '%')
 		{
-			n += _putchar(*s); /*should it be *s ?*/
+			n += _putchar(*s);
 			s++;
 			continue;
 		}
-		s++; /**
-		       switch to next character after it hits %
-		       */
+		s++;
 
 		switch (*s)
 		{

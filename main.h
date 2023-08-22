@@ -14,15 +14,15 @@ int _putchar(char c);
 int puts(const char *);
 
 /**
- * struct - Defining a struct with format specifiers and functions to handle print
+ * struct op - a struct with format specifiers and functions to handle print
  * @c: input character to compare
  * @f: corresponding function
  */
 
 typedef struct op
 {
-        char *c;
-        int (*f)(va_list);
+	char *c;
+	int (*f)(va_list);
 } op_t;
 
 

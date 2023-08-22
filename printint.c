@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_int - prints an integer
- * @args: argument
+ * printint - prints an integer
+ * @list: of arguments
  *
  * Return: number of characters printed
  */
