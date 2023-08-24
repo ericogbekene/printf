@@ -1,15 +1,16 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#define BUFFER 1024
+
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
 
 int _printf(const char *format, ...);
 int printstr(char *a);
-int printint(va_list list);
+int printint(int);
+int switchfunc(char mychar, ...);
 int _putchar(char c);
 int puts(const char *);
 

@@ -20,14 +20,14 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
+	if (s == NULL)
+		return (-1);
+
+
 	while (*s)
 	{
-		if (s == NULL)
-			n += puts("(null)");
-		if (list == NULL)
-			n += puts("(null)");
-		 /* handle other edge cases
-		 */
+		/* handle other edge cases
+		*/
 
 		if (*s != '%')
 		{
@@ -35,30 +35,42 @@ int _printf(const char *format, ...)
 			s++;
 			continue;
 		}
-		s++;
 
-		switch (*s)
+		if (*s == '%')
 		{
-			case 'c':
-				ch = va_arg(list, int);
-				n += _putchar(ch);
-				break;
-			case 's':
-				string = va_arg(list, char *);
-				n += printstr(string);
-				break;
-			case '%':
-				n += _putchar('%');
-				break;
-			case 'd':
-			case 'i':
-				n += printint(list);
-				break;
-			default:
-				n += _putchar('%');
-				n += _putchar(*s);
-				break;
+			s++;
+
+			switch (*s)
+			{
+				case 'c':
+					ch = va_arg(list, int);
+					n += _putchar(ch);
+					break;
+				case 's':
+					string = va_arg(list, char *);
+
+					n += printstr(string);
+					break;
+				case '%':
+					n += _putchar('%');
+					break;
+				case 'd':
+					n += printint(va_arg(list, int));
+					break;
+				case 'i':
+					n += printint(va_arg(list, int));
+					break;
+				default:
+					n += _putchar('%');
+					n += _putchar(*s);
+					break;
+			}
+
 		}
+		/*
+		 * increment while loop 
+		 */
+
 		s++;
 	}
 

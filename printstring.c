@@ -7,17 +7,19 @@
  * Return: the number of arguments printed
  */
 
-int printstr(char *a)
+int printstr(char *mystring)
 {
 	int i;
 
-	if (a == NULL)
-		puts("(nil)");
-
-	for (i = 0; a[i] != '\0'; i++)
+	if (mystring == NULL)
 	{
-		_putchar(a[i]);
-		i++;
+		puts("(null)");
+		return (6);
+	}
+
+	for (i = 0; mystring[i] != '\0'; i++)
+	{
+		_putchar(mystring[i]);
 	}
 
 	return (i);
