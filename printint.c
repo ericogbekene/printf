@@ -7,9 +7,9 @@
  * Return: number of characters printed
  */
 
-int printint(va_list list)
+int printint(int mynumber)
 {
-	int n = va_arg(list, int);
+	int n = mynumber;
 	int num, digit, exp = 1;
 	int i = 1;
 	int last = n % 10;
