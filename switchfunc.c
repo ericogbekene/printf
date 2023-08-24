@@ -1,44 +1,39 @@
 #include "main.h"
 
-int switchfunc(char mychar, ...)
+int switchfunc(char mychar, va_list list)
 {
 	unsigned int n;
 
-	va_list list;
-
-	va_start(list, mychar);
-
-	while (mychar)
-	{
 		if (list != NULL)
 		{
 			switch (mychar)
 			{
 				case 'c':
-					n += _putchar(mychar);
+					n = _putchar(mychar);
 					break;
 				case 's':
-					n += printstr(va_arg(list, char*));
+					n = printstr(va_arg(list, char*));
 					break;
 				case '%':
-					n += _putchar('%');
+					n = _putchar('%');
 					break;
 				case 'd':
 				case 'i':
-					n += printint(va_arg(list, int));
+					n = printint(va_arg(list, int));
 					break;
 				default:
-					n += _putchar('%');
+					n = _putchar('%');
 					n += _putchar(mychar);
 			}
 
 		}
-		mychar++;
+		/**
+		 * insert what it returns if it is NULL
+		 */
 
-	}
+
+
 	return (n);
-
-	va_end(list);
 }
 /**
  *

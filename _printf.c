@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 
 	int n = 0;
 	const char *s;
-	char ch, *string;
 
 	va_list list;
 
@@ -40,6 +39,11 @@ int _printf(const char *format, ...)
 		{
 			s++;
 
+
+
+			n += switchfunc(*s, list);
+
+			/**
 			switch (*s)
 			{
 				case 'c':
@@ -66,6 +70,7 @@ int _printf(const char *format, ...)
 					break;
 			}
 
+			*/
 		}
 		/*
 		 * increment while loop 
