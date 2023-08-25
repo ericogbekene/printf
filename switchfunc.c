@@ -2,7 +2,7 @@
 
 int switchfunc(const char mychar, va_list list)
 {
-	int i;
+	int n;
 	char ch, *mystring;
 
 	switch (mychar)
