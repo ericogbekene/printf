@@ -34,7 +34,7 @@ int printint(int mynumber)
 			num = num / 10;
 		}
 		num = n;
-		while (exp > 0)
+		while (exponent > 0)
 		{
 			digit = num / exponent;
 			_putchar(digit + '0');

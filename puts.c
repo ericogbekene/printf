@@ -15,7 +15,10 @@ int puts(const char *s)
 	a = s;
 
 	if (a == NULL)
-		a = "(null)";
+	{
+		printstr("(null)");
+		return (6);
+	}
 
 	for (i = 0; a[i] != '\0'; i++)
 	{
