@@ -8,9 +8,9 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
-int printstr(char *a);
+int printstr(char *mystring);
 int printint(int);
-int switchfunc(char mychar, ...);
+int switchfunc(char mychar, va_list list);
 int _putchar(char c);
 int puts(const char *);
 

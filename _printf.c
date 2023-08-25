@@ -11,70 +11,28 @@ int _printf(const char *format, ...)
 {
 
 	int n = 0;
-	const char *s;
-	char ch, *string;
 
 	va_list list;
-
-	s = format;
-
 	va_start(list, format);
 
-	if (s == NULL)
+	if (format == NULL)
 		return (-1);
 
-
-	while (*s)
+	while (*format)
 	{
-		/* handle other edge cases
-		*/
-
-		if (*s != '%')
+		if (*format != '%')
 		{
-			n += _putchar(*s);
-			s++;
+			n += _putchar(*format);
+			format++;
 			continue;
 		}
-
-		if (*s == '%')
+		if (*format == '%')
 		{
-			s++;
-
-			switch (*s)
-			{
-				case 'c':
-					ch = va_arg(list, int);
-					n += _putchar(ch);
-					break;
-				case 's':
-					string = va_arg(list, char *);
-
-					n += printstr(string);
-					break;
-				case '%':
-					n += _putchar('%');
-					break;
-				case 'd':
-					n += printint(va_arg(list, int));
-					break;
-				case 'i':
-					n += printint(va_arg(list, int));
-					break;
-				default:
-					n += _putchar('%');
-					n += _putchar(*s);
-					break;
-			}
-
+			format++;
+			n += switchfunc(*format, list);
 		}
-		/*
-		 * increment while loop 
-		 */
-
-		s++;
+		format++;
 	}
-
-
 	va_end(list);
 	return (n);
 }

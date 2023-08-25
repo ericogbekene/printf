@@ -13,8 +13,7 @@ int printstr(char *mystring)
 
 	if (mystring == NULL)
 	{
-		puts("(null)");
-		return (6);
+		mystring = "(null)";
 	}
 
 	for (i = 0; mystring[i] != '\0'; i++)
