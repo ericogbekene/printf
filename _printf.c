@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int n = 0;
 
 	va_list list;
+
 	va_start(list, format);
 
 	if (format == NULL)
@@ -29,6 +30,8 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				return (-1);
 			n += switchfunc(*format, list);
 		}
 		format++;

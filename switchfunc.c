@@ -25,6 +25,7 @@ int switchfunc(const char mychar, va_list list)
 			n = printint(va_arg(list, int));
 			break;
 			/**
+			 *
 			  case 'p':
 			  n = printaddress(list);
 			  break;
