@@ -7,10 +7,10 @@
  * Return: number of characters printed
  */
 
-int printint(va_list list)
+int printint(int mynumber)
 {
-	int n = va_arg(list, int);
-	int num, digit, exp = 1;
+	int n = mynumber;
+	int num, digit, exponent = 1;
 	int i = 1;
 	int last = n % 10;
 
@@ -30,16 +30,16 @@ int printint(va_list list)
 	{
 		while (num / 10 != 0)
 		{
-			exp = exp * 10;
+			exponent = exponent * 10;
 			num = num / 10;
 		}
 		num = n;
 		while (exp > 0)
 		{
-			digit = num / exp;
+			digit = num / exponent;
 			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
+			num = num - (digit * exponent);
+			exponent = exponent / 10;
 			i++;
 		}
 	}
